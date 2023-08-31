@@ -1,3 +1,5 @@
+#Ejercicio 15 b
+
 import sympy as sp
 
 def funcion(r, n):

@@ -1,3 +1,6 @@
+#Ejercicio 15 a
+
+
 import sympy as sp
 
 
