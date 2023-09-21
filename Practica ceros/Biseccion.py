@@ -75,15 +75,7 @@ def biseccion_con_iteraciones(funcion, a, b, max_iteraciones):
     
     iteracion = 0
 
-<<<<<<< HEAD
     while ((b - a ) / 2.0) > tolerancia or iteracion < max_iteraciones  :
-=======
-    while ((b - a ) / 2.0) > tolerancia  :
-
-        if iteracion > max_iteraciones:
-            break
->>>>>>> 683c2c7cd9499e01ea1cc25756e5024fb72a6805
-            
         c = (a + b) / 2.0
         raiz = c
 
