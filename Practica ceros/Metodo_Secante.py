@@ -19,43 +19,52 @@ def funcion(x):
 def secante(f, p0, p1, precision):
 
     raiz = p1
+    print(precision)
+    print(  f(raiz))
+
+    while(abs(f(raiz)) > precision):
 
 
-    while(f(raiz) > precision):
+        raiz = p1 - (f(p1)* (p1-p0)) / (f(p1)-f(p0))
 
-        pn_values.append(p0)
-        pn1_values.append(p1)
-        precision_values.append(precision)
-        raiz_values.append(raiz)
-        f_values.append(f(raiz))
+        if (abs(f(raiz)) < precision):
+            break
 
-
-        raiz = p1 - ((f(p1)* (p1-p0))/ (f(p1)-f(p0)))
         p0 = p1
         p1 = raiz
 
+
+
         pn_values.append(p0)
         pn1_values.append(p1)
         precision_values.append(precision)
         raiz_values.append(raiz)
         f_values.append(f(raiz))
 
-        return(raiz)
+    pn_values.append(p0)
+    pn1_values.append(p1)
+    precision_values.append(precision)
+    raiz_values.append(raiz)
+    f_values.append(f(raiz))
 
+    data = {
+            "Iteracion:": "",
+            "p0" : pn_values,
+            "p1" : pn1_values,
+            "Valor de raiz:": raiz_values,
+            "Valores de funcion": f_values,
+            "Tolerancia:": precision_values
 
-
-print(secante(funcion, 1.2, 1, 10**-4))
-data = {
-        "Iteracion": "" ,
-        "p_n": pn_values,
-        "p_n+1": pn1_values,
-        "Valor de raices": raiz_values,
-        "tolerancia": precision_values,
-        "valores de f": f_values
     }
-tabla_values = pd.DataFrame(data)
 
-print(tabla_values)
+    tabla_values = pd.DataFrame(data)
+
+    print(tabla_values)
+
+    return(raiz)
+
+
+
 
         
 
