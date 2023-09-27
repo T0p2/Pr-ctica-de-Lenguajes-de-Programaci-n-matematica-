@@ -7,13 +7,13 @@ que la ra´ız obtenida tenga un error menor que 10−4
 ?'''
 
 
-from Biseccion import biseccion, Iterations_funtions
+from Biseccion import biseccion_con_tolerancia
 import math
 
 def funcion (x):
     return(math.e**x - 3*x)
 
-raiz_aprox = biseccion(funcion, 0, 1, Iterations_funtions(0, 1, 10**-4) )
+raiz_aprox = biseccion_con_tolerancia(funcion, 0, 1,  10**-4 )
 
 raiz_real = 0.61906129
 
