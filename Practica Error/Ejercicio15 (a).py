@@ -2,13 +2,17 @@
 
 
 import sympy as sp
-
-
 x = sp.Symbol('x')
 
-for n in range (1, 26):
-    funcion = x ** n / (x + 10)
-    integral = sp.integrate(funcion, (x, 1, 0))
+
+def funcion(n):
+    return (x ** n) / (x + 10)
+
+
+
+for n in range (0, 25):
+    
+    integral = sp.integrate(funcion(n), (x, 0,1))
 
     #Los valores salen como sumas de logaritmos, asi que 
     #implemento un metodo de sympy, para que me resuelva eso

@@ -1,7 +1,7 @@
 
 
 import math
-import matplotlib.pyplot as plt
+import pandas as pd
 
 def funcion_aproximada(x, h):
     numerator = math.exp(x + h) - math.exp(x - h)
@@ -10,15 +10,49 @@ def funcion_aproximada(x, h):
 def funcion_real(x):
     return math.exp(x)
 
+
 true_value = funcion_real(0)
 
-
-h_values = [2**(-i) for i in range(1, 4)]
+h_values = [2**(-i) for i in range(1, 31)]
 approx_values = [funcion_aproximada(0, h) for h in h_values]
 error_absoluto = [abs(true_value - approx_value) for approx_value in approx_values]
 error_relativo = [abs(error_absoluto/true_value) for error_absoluto in error_absoluto]
 
 
+
+
+data = pd.DataFrame({
+    "valores de h": h_values,
+    "valores aproximados": approx_values,
+    "valor real": true_value,
+    "error absoluto": error_absoluto,
+    "error relativo": error_relativo
+})
+
+
+print(data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#graficos
+'''
 
 # Gráfico de los valores aproximados
 plt.figure(figsize=(10, 6))
@@ -63,3 +97,4 @@ plt.show()
 
 print(error_absoluto)
 print(h_values)
+'''

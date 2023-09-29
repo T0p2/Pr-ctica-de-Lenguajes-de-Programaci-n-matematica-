@@ -1,11 +1,13 @@
 #Ejercicio 15 b
 
 import sympy as sp
+x = sp.Symbol('x')
+
 
 def funcion(r, n):
     return (1/10) * (1/n - r)
 
-x = sp.Symbol('x')
+
 
 n_values = [i for i in range(1, 25)]
 #n_values = n_values[::-1]
