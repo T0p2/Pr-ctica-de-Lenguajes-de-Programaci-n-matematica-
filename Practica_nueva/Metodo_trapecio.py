@@ -32,7 +32,8 @@ def metodo_trapecio(funcion, a, b, n):
     }
 
     tabla = pd.DataFrame(data)
-    print(tabla)
+    #print("Tabla del metodo de trapecio")
+    #print(tabla)
 
 
     
@@ -44,4 +45,3 @@ def funcion (x):
     return math.sin(x)
 
 
-print(metodo_trapecio(funcion, 0, math.pi, 3))

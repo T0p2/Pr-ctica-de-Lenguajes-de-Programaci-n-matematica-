@@ -1,36 +1,31 @@
-def func(x):
-    # Define la función que quieres integrar
-    return x**2  # Ejemplo: x^2
+'''Metodo de romberg se trata de generar
+una matriz trinagular cuyos elementos 
+son estimaciones numericas de la integral
+definida como: S [a, b] f(x) dx  (integral)'''
 
-def trapezoidal_rule(f, a, b, n):
-    # Regla del trapecio para aproximar la integral definida
-    h = (b - a) / n
-    result = 0.5 * (f(a) + f(b))
-    for i in range(1, n):
-        result += f(a + i * h)
-    result *= h
-    return result
+
+from Metodo_trapecio import metodo_trapecio
+import math
 
 def romberg_integration(f, a, b, n_max):
-    # Inicializa la matriz de Romberg
-    romberg_matrix = [[0] * (n_max + 1) for _ in range(n_max + 1)]
+    # Implementa el método de Romberg para integrar la función f desde a hasta b
+    # n_max es el número máximo de subdivisiones
+    tabla_romberg = [[0] * (n_max + 1) for _ in range(n_max + 1)]
 
-    # Calcula las aproximaciones iniciales usando la regla del trapecio
     for i in range(n_max + 1):
-        romberg_matrix[i][0] = trapezoidal_rule(f, a, b, 2**i)
+        tabla_romberg[i][0] = metodo_trapecio(f, a, b, 2**i)
 
-    # Aplica la extrapolación de Richardson
     for j in range(1, n_max + 1):
         for i in range(j, n_max + 1):
-            romberg_matrix[i][j] = (4**j * romberg_matrix[i][j - 1] - romberg_matrix[i - 1][j - 1]) / (4**j - 1)
+            tabla_romberg[i][j] = (4**j * tabla_romberg[i][j - 1] - tabla_romberg[i - 1][j - 1]) / (4**j - 1)
 
-    # La última entrada de la matriz tiene la mejor aproximación
-    return romberg_matrix[n_max][n_max]
+    return tabla_romberg[n_max][n_max]
 
-# Ejemplo de uso:
-a = 0
-b = 1
-n_max = 4  # Puedes ajustar el número máximo de iteraciones
 
-resultado = romberg_integration(func, a, b, n_max)
-print(f"Resultado de la integración: {resultado}")
+
+def funcion(x):
+    return math.sin(x)
+
+
+integral = romberg_integration(funcion, 0, math.pi, 3) 
+print(integral)
