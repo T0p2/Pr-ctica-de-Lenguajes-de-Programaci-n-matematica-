@@ -6,6 +6,10 @@
 - y reptimos
 - por ultimo resolvemos el sistema de ecuaciones.
 
+
+
+En el algoritmo tenemos el paso de trianguliazcion (Descendente)
+Y el paso de resolver el sistema de ecuaciones (Ascendente porque va de abajo hacia arriba)
 '''
 
 
@@ -28,6 +32,7 @@ def gauss_elimination(matrix):
             matrix[j, :] -= factor * matrix[p, :]
     
     # Resolver el sistema (ascendente)
+#x es para almacenar el resultado.
     x = np.zeros(rows)
     x[rows - 1] = matrix[rows - 1, cols - 1]
 
