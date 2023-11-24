@@ -62,3 +62,11 @@ def min_cuadrado(lista_x, lista_y):
 
         return(m * x) + b
 
+
+
+lista_x = [-1, 0, 1, 2]
+lista_y = [2, -1, 1, -2]
+
+
+ecuacion = min_cuadrado (lista_x, lista_y)
+print(ecuacion)

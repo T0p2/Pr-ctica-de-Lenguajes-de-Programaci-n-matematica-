@@ -23,18 +23,6 @@ def metodo_trapecio(funcion, a, b, n):
         i_value.append(i)
         h_value.append(h)
     
-    
-    data ={
-        "Iteracion" : i_value,
-        "Sumatoria": sumatoria_value,
-        "n" : n_value,
-        "h": h_value
-    }
-
-    tabla = pd.DataFrame(data)
-    #print("Tabla del metodo de trapecio")
-    #print(tabla)
-
 
     
     return h/2 * (funcion(a) + funcion(b) + 2 * sumatoria)
@@ -44,4 +32,5 @@ def metodo_trapecio(funcion, a, b, n):
 def funcion (x):
     return math.sin(x)
 
-
+integral = metodo_trapecio(funcion, 0, math.pi, 4)
+print(integral)
