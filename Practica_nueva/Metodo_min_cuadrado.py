@@ -52,20 +52,13 @@ def min_cuadrado(lista_x, lista_y):
 
         b = (sum_y - m * sum_x) / n
 
-    #carga de datos en DataFrame
-
-        data = pd.DataFrame({'Pendiente': [m], 'Ordenada al Origen': [b], 'sumatoria_y': [sum_y]
-        , 'sumatoria_x': [sum_x], 'sumatoria_xy': [sum_xy], 'sumatoria_x**2': sum_x_x })
-
-        print(data)
-
 
         return(m * x) + b
 
 
 
-lista_x = [-1, 0, 1, 2]
-lista_y = [2, -1, 1, -2]
+lista_x = [1, 2, 3, 4]
+lista_y = [1.4, 1.1, 0.7, 0.1]
 
 
 ecuacion = min_cuadrado (lista_x, lista_y)
