@@ -8,10 +8,6 @@ from Metodo_trapecio import metodo_trapecio
 import math
 
 
-def metodo_richardson(q, h, n):
-    factor = 4 ** n - 1
-    return(factor * q - q[0]) / h**n
-
 
 
 def romberg_integration(f, a, b, n_max):
