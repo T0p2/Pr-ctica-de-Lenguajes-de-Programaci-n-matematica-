@@ -4,8 +4,22 @@ son estimaciones numericas de la integral
 definida como: S [a, b] f(x) dx  (integral)'''
 
 
-from Metodo_trapecio import metodo_trapecio
 import math
+
+
+
+def metodo_trapecio(funcion, a, b, n):
+
+    i = 1
+    h = (b-a)/n
+    sumatoria = 0
+    #encuentro el resultado de la sumatoria para ponerla en la regla
+    for i in range(1, n):
+        sumatoria = sumatoria + funcion(a + i * h)
+
+    
+    return h/2 * (funcion(a) + funcion(b) + 2 * sumatoria)
+
 
 
 
